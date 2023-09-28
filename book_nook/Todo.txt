@@ -1,0 +1,15 @@
+register and login with google and facebook
+forgot password
+
+upload book (ask for forbidden in Islam)
+
+make a chat between any two readers and make a society for readers (like community)
+    look at aware if you do not understand
+
+make rating feature
+
+only free books
+
+test and upload to play store
+
+use firebase for storage
