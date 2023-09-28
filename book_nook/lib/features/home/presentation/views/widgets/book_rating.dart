@@ -5,21 +5,24 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BookRating extends StatelessWidget {
-  const BookRating({super.key});
+  final MainAxisAlignment mainAxisAlignment;
+  const BookRating({
+    super.key,
+    this.mainAxisAlignment = MainAxisAlignment.start,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Row(
-      // - There is a problem in base line
-      crossAxisAlignment: CrossAxisAlignment.baseline,
-      textBaseline: TextBaseline.alphabetic,
+      mainAxisAlignment: mainAxisAlignment,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         // star
         const Icon(
           // TODO: get rating from api
           FontAwesomeIcons.solidStar,
           color: ColorManager.yellow,
-          size: AppValues.v18,
+          size: AppValues.v14,
         ),
 
         const SizedBox(width: AppValues.v6_3),
@@ -29,19 +32,20 @@ class BookRating extends StatelessWidget {
           // TODO: get rating from api
           '4.8',
           style: Styles.textStyle16.copyWith(
-              fontWeight: FontWeight.bold,
-              ),
+            fontWeight: FontWeight.bold,
+          ),
         ),
 
         const SizedBox(width: AppValues.v5),
 
         // number of ratings
-        Text(
-          // TODO: get number of ratings from api
-          ' (2390)',
-          style: Styles.textStyle16.copyWith(
-              color: ColorManager.grey,
-              ),
+        Opacity(
+          opacity: AppValues.v0_5,
+          child: Text(
+            // TODO: get number of ratings from api
+            ' (2390)',
+            style: Styles.textStyle16,
+          ),
         ),
       ],
     );

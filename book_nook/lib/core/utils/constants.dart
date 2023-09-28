@@ -11,6 +11,9 @@ class Constants {
   static const int splashScreenDelayInSeconds = 3;
   static const int transitionDurationInSeconds = 1;
 
+  // Double
+  static const double customBookImageAspectRatio = 2.6 / 4;
+
   // Offset
   static const Offset animationBegin = Offset(-0.5, 10);
   static const Offset animationEnd = Offset(0.2, 0);

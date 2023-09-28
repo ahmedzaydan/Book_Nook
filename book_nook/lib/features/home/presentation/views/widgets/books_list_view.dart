@@ -1,5 +1,5 @@
 import 'package:book_nook/core/utils/values_manager.dart';
-import 'package:book_nook/features/home/presentation/views/widgets/books_list_view_item.dart';
+import 'package:book_nook/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
 
 class BooksListView extends StatelessWidget {
@@ -14,7 +14,7 @@ class BooksListView extends StatelessWidget {
         child: ListView.separated(
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
-            return const BooksListViewItem();
+            return const CustomBookImage();
           },
           separatorBuilder: (context, index) =>
               const SizedBox(width: AppValues.v14),
