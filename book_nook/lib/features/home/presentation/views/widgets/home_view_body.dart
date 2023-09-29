@@ -1,5 +1,6 @@
+import 'package:book_nook/core/utils/strings_manager.dart';
+import 'package:book_nook/core/utils/styles.dart';
 import 'package:book_nook/core/utils/values_manager.dart';
-import 'package:book_nook/features/home/presentation/views/widgets/best_seller.dart';
 import 'package:book_nook/features/home/presentation/views/widgets/best_seller_list_view.dart';
 import 'package:book_nook/features/home/presentation/views/widgets/books_list_view.dart';
 import 'package:book_nook/features/home/presentation/views/widgets/custom_app_bar.dart';
@@ -13,20 +14,27 @@ class HomeViewBody extends StatelessWidget {
     return NestedScrollView(
       headerSliverBuilder: (context, innerBoxIsScrolled) {
         return [
-          const SliverToBoxAdapter(
+          SliverToBoxAdapter(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
+                // app bar
+                const Padding(
                   padding: EdgeInsets.symmetric(horizontal: AppValues.v30),
                   child: CustomAppBar(),
                 ),
-                BooksListView(),
+
+                const BooksListView(),
+                // best seller text
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: AppValues.v30),
-                  child: BestSeller(),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: AppValues.v30),
+                  child: Text(
+                    StringsManager.bestSeller,
+                    style: Styles.textStyle18,
+                  ),
                 ),
-                SizedBox(height: AppValues.v20),
+                const SizedBox(height: AppValues.v20),
               ],
             ),
           ),
