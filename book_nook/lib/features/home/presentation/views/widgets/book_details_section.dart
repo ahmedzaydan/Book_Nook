@@ -19,18 +19,18 @@ class BookDetailsSection extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: width * AppValues.v0_2),
           child: const CustomBookImage(),
         ),
-        
+
         const SizedBox(height: AppValues.v43),
-        
+
         // book title
         // TODO: Add book title from the book model
         Text(
           'The Jungle Book',
           style: Styles.textStyle30,
         ),
-        
+
         const SizedBox(height: AppValues.v6),
-        
+
         // book subtitle
         // TODO: Add book subtitle from the book model
         Opacity(
@@ -43,11 +43,11 @@ class BookDetailsSection extends StatelessWidget {
             ),
           ),
         ),
-        
+
         const BookRating(
           mainAxisAlignment: MainAxisAlignment.center,
         ),
-        
+
         const SizedBox(height: AppValues.v37),
         const BookActions(),
       ],

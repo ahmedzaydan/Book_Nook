@@ -8,8 +8,8 @@ import 'package:book_nook/core/utils/values_manager.dart';
 import 'package:book_nook/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:flutter/material.dart';
 
-class BookListViewItem extends StatelessWidget {
-  const BookListViewItem({super.key});
+class BooksListViewItem extends StatelessWidget {
+  const BooksListViewItem({super.key});
 
   @override
   Widget build(BuildContext context) {
