@@ -5,6 +5,7 @@ class Constants {
   static const String basePath = 'assets/images';
   static const String gtSectraFine = 'GT_Sectra_Fine';
   static const String gilroy = 'Gilroy';
+  static const String baseUrl = 'https://www.googleapis.com/books/v1/';
 
   // Int
   static const int slidingAnimationDurationInSeconds = 2;
