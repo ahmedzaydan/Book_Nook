@@ -5,7 +5,15 @@ class Constants {
   static const String basePath = 'assets/images';
   static const String gtSectraFine = 'GT_Sectra_Fine';
   static const String gilroy = 'Gilroy';
+
+  // Api
   static const String baseUrl = 'https://www.googleapis.com/books/v1/';
+  static const String programmingCategory =
+      'volumes?Filtering=free-ebooks&Sorting=newest &q=subject:Programming';
+  static const String itemsField = 'items';
+  static const String errorField = 'error';
+  static const String messageField = 'message';
+  static const String socketException = 'SocketException';
 
   // Int
   static const int slidingAnimationDurationInSeconds = 2;
