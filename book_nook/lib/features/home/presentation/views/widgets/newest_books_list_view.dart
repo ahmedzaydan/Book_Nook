@@ -2,8 +2,8 @@ import 'package:book_nook/core/utils/values_manager.dart';
 import 'package:book_nook/features/home/presentation/views/widgets/books_list_view_item.dart';
 import 'package:flutter/material.dart';
 
-class BestSellerListView extends StatelessWidget {
-  const BestSellerListView({super.key});
+class NewestBooksListView extends StatelessWidget {
+  const NewestBooksListView({super.key});
 
   @override
   Widget build(BuildContext context) {

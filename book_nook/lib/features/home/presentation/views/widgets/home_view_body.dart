@@ -1,7 +1,7 @@
 import 'package:book_nook/core/utils/strings_manager.dart';
 import 'package:book_nook/core/utils/styles.dart';
 import 'package:book_nook/core/utils/values_manager.dart';
-import 'package:book_nook/features/home/presentation/views/widgets/best_seller_list_view.dart';
+import 'package:book_nook/features/home/presentation/views/widgets/newest_books_list_view.dart';
 import 'package:book_nook/features/home/presentation/views/widgets/custom_app_bar.dart';
 import 'package:book_nook/features/home/presentation/views/widgets/featured_books_list_view.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +30,7 @@ class HomeViewBody extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: AppValues.v30),
                   child: Text(
-                    StringsManager.bestSeller,
+                    StringsManager.newest,
                     style: Styles.textStyle18,
                   ),
                 ),
@@ -42,7 +42,7 @@ class HomeViewBody extends StatelessWidget {
       },
       body: const Padding(
         padding: EdgeInsets.symmetric(horizontal: AppValues.v30),
-        child: BestSellerListView(),
+        child: NewestBooksListView(),
       ),
     );
   }
