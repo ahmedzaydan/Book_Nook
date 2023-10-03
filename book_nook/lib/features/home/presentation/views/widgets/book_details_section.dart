@@ -1,3 +1,4 @@
+import 'package:book_nook/core/utils/assets_manager.dart';
 import 'package:book_nook/core/utils/styles.dart';
 import 'package:book_nook/core/utils/values_manager.dart';
 import 'package:book_nook/features/home/presentation/views/widgets/book_actions.dart';
@@ -17,7 +18,10 @@ class BookDetailsSection extends StatelessWidget {
         // book cover image
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * AppValues.v0_2),
-          child: const CustomBookImage(),
+          child: CustomBookImage(
+            // TODO: Change this
+            image: AssetsManager.testImage,
+          ),
         ),
 
         const SizedBox(height: AppValues.v43),

@@ -8,7 +8,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
 class HomeRepoImpl implements HomeRepo {
-  final ApiService _apiService;
+  final ApiServiceClient _apiService;
   HomeRepoImpl(this._apiService);
 
   @override
@@ -38,7 +38,10 @@ class HomeRepoImpl implements HomeRepo {
       var response = await _apiService.get(
         endPoint: '${Constants.baseRequest}/${EndPoints.programming}',
       );
-      List<Book> books = response[Constants.itemsField];
+      List<Book> books = [];
+      for (var item in response[Constants.itemsField]) {
+        books.add(Book.fromJson(item));
+      }
       return right(books);
     } catch (e) {
       if (e is DioException) {
