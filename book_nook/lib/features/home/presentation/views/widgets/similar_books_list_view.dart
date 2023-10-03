@@ -12,7 +12,7 @@ class SimilarBooksListView extends StatelessWidget {
       height: MediaQuery.sizeOf(context).height * 0.15,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) =>  CustomBookImage(
+        itemBuilder: (context, index) => CustomBookImage(
           // TODO: Change this
           image: AssetsManager.testImage,
         ),

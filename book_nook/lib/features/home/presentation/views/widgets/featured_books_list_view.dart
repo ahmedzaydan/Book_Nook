@@ -20,6 +20,7 @@ class FeaturedBooksListView extends StatelessWidget {
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
+                // TODO: add onTap to be clickable and navigate to book details
                 return CustomBookImage(
                   image:
                       state.books[index].volumeInfo.imageLinks.smallThumbnail,

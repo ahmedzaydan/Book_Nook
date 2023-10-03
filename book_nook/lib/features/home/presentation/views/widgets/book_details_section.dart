@@ -2,7 +2,6 @@ import 'package:book_nook/core/utils/assets_manager.dart';
 import 'package:book_nook/core/utils/styles.dart';
 import 'package:book_nook/core/utils/values_manager.dart';
 import 'package:book_nook/features/home/presentation/views/widgets/book_actions.dart';
-import 'package:book_nook/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:book_nook/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
 
@@ -48,9 +47,12 @@ class BookDetailsSection extends StatelessWidget {
           ),
         ),
 
-        const BookRating(
-          mainAxisAlignment: MainAxisAlignment.center,
-        ),
+        // TODO: Add book rating from the book model
+        //  BookRating(
+        //   mainAxisAlignment: MainAxisAlignment.center,
+        //   rating: ,
+        //   ratingsCount: ,
+        // ),
 
         const SizedBox(height: AppValues.v37),
         const BookActions(),

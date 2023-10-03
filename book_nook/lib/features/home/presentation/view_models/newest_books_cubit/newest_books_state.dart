@@ -8,12 +8,15 @@ abstract class NewestBooksState extends Equatable {
 }
 
 class NewestBooksInitialState extends NewestBooksState {}
+
 class NewestBooksLoadingState extends NewestBooksState {}
+
 class NewestBooksSuccessState extends NewestBooksState {
-  final List<Book> books;
+  final List<BookModel> books;
 
   const NewestBooksSuccessState(this.books);
 }
+
 class NewestBooksFailureState extends NewestBooksState {
   final String message;
 

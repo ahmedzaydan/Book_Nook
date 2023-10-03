@@ -12,6 +12,7 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return NestedScrollView(
+      physics: const BouncingScrollPhysics(),
       headerSliverBuilder: (context, innerBoxIsScrolled) {
         return [
           SliverToBoxAdapter(
@@ -25,7 +26,10 @@ class HomeViewBody extends StatelessWidget {
                 ),
 
                 const Padding(
-                  padding: EdgeInsets.symmetric(vertical: AppValues.v20),
+                  padding: EdgeInsets.only(
+                    top: AppValues.v20,
+                    bottom: AppValues.v28,
+                  ),
                   child: FeaturedBooksListView(),
                 ),
 

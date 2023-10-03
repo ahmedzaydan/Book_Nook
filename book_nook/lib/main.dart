@@ -25,7 +25,9 @@ class BookNook extends StatelessWidget {
           )..fetchFeaturedBooks(),
         ),
         BlocProvider(
-          create: (context) => NewestBooksCubit(getItInstance<HomeRepo>()),
+          create: (context) => NewestBooksCubit(
+            getItInstance<HomeRepo>(),
+          )..fetchNewestBooks(),
         ),
       ],
       child: MaterialApp.router(

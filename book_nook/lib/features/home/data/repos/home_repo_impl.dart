@@ -2,7 +2,7 @@ import 'package:book_nook/core/errors/failures.dart';
 import 'package:book_nook/core/utils/api_service.dart';
 import 'package:book_nook/core/utils/constants.dart';
 import 'package:book_nook/core/utils/end_points.dart';
-import 'package:book_nook/features/home/data/models/kind/book.dart';
+import 'package:book_nook/features/home/data/models/book_kind/book_model.dart';
 import 'package:book_nook/features/home/data/repos/home_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
@@ -10,15 +10,16 @@ import 'package:dio/dio.dart';
 class HomeRepoImpl implements HomeRepo {
   final ApiServiceClient _apiService;
   HomeRepoImpl(this._apiService);
-
   @override
-  Future<Either<Failure, List<Book>>> fetchNewestBooks() async {
+  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
     try {
       var response = await _apiService.get(
-        endPoint:
-            '${Constants.baseRequestWithSorting}/${EndPoints.programming}',
+        endPoint: '${Constants.freeEBooksPath}&q=${EndPoints.programming}',
       );
-      List<Book> books = response[Constants.itemsField];
+      List<BookModel> books = [];
+      for (var item in response[Constants.itemsField]) {
+        books.add(BookModel.fromJson(item));
+      }
       return right(books);
     } catch (e) {
       if (e is DioException) {
@@ -33,14 +34,15 @@ class HomeRepoImpl implements HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<Book>>> fetchFeaturedBooks() async {
+  Future<Either<Failure, List<BookModel>>> fetchNewestBooks() async {
     try {
       var response = await _apiService.get(
-        endPoint: '${Constants.baseRequest}/${EndPoints.programming}',
+        endPoint:
+            '${Constants.freeEBooksPath}&Sorting=newest&q=${EndPoints.programming}',
       );
-      List<Book> books = [];
+      List<BookModel> books = [];
       for (var item in response[Constants.itemsField]) {
-        books.add(Book.fromJson(item));
+        books.add(BookModel.fromJson(item));
       }
       return right(books);
     } catch (e) {

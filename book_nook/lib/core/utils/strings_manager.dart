@@ -4,4 +4,5 @@ abstract class StringsManager {
   static const String similarBooksTitle = 'You can also like';
   static const String search = 'Search';
   static const String saerchResults = 'Search Results';
+  static const String free = 'Free';
 }

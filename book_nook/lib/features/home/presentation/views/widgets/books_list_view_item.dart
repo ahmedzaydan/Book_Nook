@@ -1,15 +1,17 @@
-import 'package:book_nook/core/utils/assets_manager.dart';
-import 'package:book_nook/core/utils/color_manager.dart';
 import 'package:book_nook/core/utils/constants.dart';
 import 'package:book_nook/core/utils/functions.dart';
 import 'package:book_nook/core/utils/routes_manager.dart';
+import 'package:book_nook/core/utils/strings_manager.dart';
 import 'package:book_nook/core/utils/styles.dart';
 import 'package:book_nook/core/utils/values_manager.dart';
+import 'package:book_nook/features/home/data/models/book_kind/book_model.dart';
 import 'package:book_nook/features/home/presentation/views/widgets/book_rating.dart';
+import 'package:book_nook/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
 
 class BooksListViewItem extends StatelessWidget {
-  const BooksListViewItem({super.key});
+  final BookModel book;
+  const BooksListViewItem({super.key, required this.book});
 
   @override
   Widget build(BuildContext context) {
@@ -26,18 +28,10 @@ class BooksListViewItem extends StatelessWidget {
         child: Row(
           children: [
             // book cover image
-            AspectRatio(
-              aspectRatio: 2.5 / 4,
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(AppValues.v10),
-                  color: ColorManager.white,
-                  image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: AssetImage(AssetsManager.testImage),
-                  ),
-                ),
-              ),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(AppValues.v16),
+              child:
+                  CustomBookImage(image: book.volumeInfo.imageLinks.thumbnail),
             ),
 
             const SizedBox(width: AppValues.v30),
@@ -50,8 +44,7 @@ class BooksListViewItem extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.sizeOf(context).width * 0.5,
                     child: Text(
-                      // TODO: get title from api
-                      'Harry Potter and the Goblet of Fire',
+                      book.volumeInfo.title!,
                       style: Styles.textStyle20.copyWith(
                         fontFamily: Constants.gtSectraFine,
                       ),
@@ -64,8 +57,8 @@ class BooksListViewItem extends StatelessWidget {
 
                   // book author
                   Text(
-                    // TODO: get author from api
-                    'J.K. Rowling',
+                    // fetch first author only
+                    book.volumeInfo.authors![0],
                     style: Styles.textStyle14,
                   ),
 
@@ -77,14 +70,16 @@ class BooksListViewItem extends StatelessWidget {
                     children: [
                       // price
                       Text(
-                        // TODO: get price from api
-                        '19.99 \$',
+                        StringsManager.free,
                         style: Styles.textStyle20.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
 
-                      const BookRating(),
+                      BookRating(
+                        rating: book.volumeInfo.averageRating ?? Constants.zero,
+                        ratingsCount: book.volumeInfo.ratingsCount ?? Constants.zero,
+                      ),
                     ],
                   ),
                 ],
