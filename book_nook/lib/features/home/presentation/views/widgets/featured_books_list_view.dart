@@ -1,3 +1,6 @@
+import 'package:book_nook/core/utils/assets_manager.dart';
+import 'package:book_nook/core/utils/functions.dart';
+import 'package:book_nook/core/utils/routes_manager.dart';
 import 'package:book_nook/core/utils/values_manager.dart';
 import 'package:book_nook/core/widgets/custom_error_widget.dart';
 import 'package:book_nook/core/widgets/custom_loading_indicator.dart';
@@ -20,10 +23,19 @@ class FeaturedBooksListView extends StatelessWidget {
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
-                // TODO: add onTap to be clickable and navigate to book details
-                return CustomBookImage(
-                  image:
-                      state.books[index].volumeInfo.imageLinks.smallThumbnail,
+                return GestureDetector(
+                  onTap: () {
+                    navigateTo(
+                      context: context,
+                      dest: RoutesManager.bookDetailsView,
+                      extra: state.books[index],
+                    );
+                  },
+                  child: CustomBookImage(
+                    image: state
+                            .books[index].volumeInfo.imageLinks?.smallThumbnail ??
+                        AssetsManager.testImage,
+                  ),
                 );
               },
               separatorBuilder: (context, index) =>

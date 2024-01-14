@@ -1,3 +1,4 @@
+import 'package:book_nook/core/utils/assets_manager.dart';
 import 'package:book_nook/core/utils/constants.dart';
 import 'package:book_nook/core/utils/functions.dart';
 import 'package:book_nook/core/utils/routes_manager.dart';
@@ -20,6 +21,7 @@ class BooksListViewItem extends StatelessWidget {
         navigateTo(
           context: context,
           dest: RoutesManager.bookDetailsView,
+          extra: book,
         );
       },
       child: SizedBox(
@@ -30,8 +32,10 @@ class BooksListViewItem extends StatelessWidget {
             // book cover image
             ClipRRect(
               borderRadius: BorderRadius.circular(AppValues.v16),
-              child:
-                  CustomBookImage(image: book.volumeInfo.imageLinks.thumbnail),
+              child: CustomBookImage(
+                image: book.volumeInfo.imageLinks?.thumbnail ??
+                    AssetsManager.testImage,
+              ),
             ),
 
             const SizedBox(width: AppValues.v30),
@@ -78,7 +82,8 @@ class BooksListViewItem extends StatelessWidget {
 
                       BookRating(
                         rating: book.volumeInfo.averageRating ?? Constants.zero,
-                        ratingsCount: book.volumeInfo.ratingsCount ?? Constants.zero,
+                        ratingsCount:
+                            book.volumeInfo.ratingsCount ?? Constants.zero,
                       ),
                     ],
                   ),

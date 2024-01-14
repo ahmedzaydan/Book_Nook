@@ -1,20 +1,25 @@
 import 'package:book_nook/core/utils/color_manager.dart';
+import 'package:book_nook/core/utils/functions.dart';
+import 'package:book_nook/core/utils/strings_manager.dart';
 import 'package:book_nook/core/utils/values_manager.dart';
 import 'package:book_nook/core/widgets/custom_button.dart';
+import 'package:book_nook/features/home/data/models/book_kind/book_model.dart';
 import 'package:flutter/material.dart';
 
 class BookActions extends StatelessWidget {
-  const BookActions({super.key});
+  const BookActions({super.key, required this.bookModel});
+
+  final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: AppValues.v10),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: AppValues.v10),
       child: Row(
         children: [
-          Expanded(
+          const Expanded(
             child: CustomButton(
-              text: '19.99 \$',
+              text: StringsManager.free,
               textColor: ColorManager.black,
               backgroundColor: ColorManager.white,
               borderRadius: BorderRadius.only(
@@ -23,12 +28,20 @@ class BookActions extends StatelessWidget {
               ),
             ),
           ),
+
+          // preview button
           Expanded(
             child: CustomButton(
-              text: 'Free Preview',
+              onPressed: () async {
+                openUrl(
+                  url: bookModel.volumeInfo.previewLink!,
+                  context: context,
+                );
+              },
+              text: StringsManager.preview,
               textColor: ColorManager.white,
               backgroundColor: ColorManager.orange,
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 topRight: Radius.circular(AppValues.v16),
                 bottomRight: Radius.circular(AppValues.v16),
               ),

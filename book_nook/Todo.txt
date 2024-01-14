@@ -13,3 +13,5 @@ only free books
 test and upload to play store
 
 use firebase for storage
+
+if you encounter proble in double and int use num data type

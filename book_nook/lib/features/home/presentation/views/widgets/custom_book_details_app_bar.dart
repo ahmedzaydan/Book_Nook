@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class BookDetailsViewAppBar extends StatelessWidget {
   const BookDetailsViewAppBar({super.key});
@@ -11,7 +12,7 @@ class BookDetailsViewAppBar extends StatelessWidget {
         // close
         IconButton(
           onPressed: () {
-            // TODO: implement close
+            GoRouter.of(context).pop();
           },
           icon: const Icon(Icons.close),
         ),

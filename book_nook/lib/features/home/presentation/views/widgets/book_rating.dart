@@ -24,7 +24,6 @@ class BookRating extends StatelessWidget {
       children: [
         // star
         const Icon(
-          // TODO: get rating from api
           FontAwesomeIcons.solidStar,
           color: ColorManager.yellow,
           size: AppValues.v14,

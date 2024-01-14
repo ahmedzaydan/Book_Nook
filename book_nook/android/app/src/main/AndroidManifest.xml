@@ -1,8 +1,26 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- add internet permission -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    
+   <queries>
+   <intent>
+      <action android:name="android.intent.action.VIEW" />
+      <data android:scheme="http" />
+      <data android:scheme="https" />
+      <data android:scheme="about" />
+      <data android:scheme="chrome" />
+      <data android:scheme="com.android.chrome" />
+      <data android:scheme="http" android:host="books.google.com.eg" />
+   </intent>
+</queries>
+
+    
     <application
         android:label="book_nook"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:usesCleartextTraffic="true"
+        >
         <activity
             android:name=".MainActivity"
             android:exported="true"
